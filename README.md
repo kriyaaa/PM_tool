@@ -20,6 +20,30 @@ A Jira-like project management backend built with Spring Boot. It supports proje
 - MySQL for local development
 - PostgreSQL-ready deployment path for Render
 
+  ## System Architecture
+
+The system follows a layered architecture:
+
+Controller Layer
+→ Handles HTTP requests and validation
+
+Service Layer
+→ Contains business logic (workflow rules, sprint handling, transitions)
+
+Repository Layer
+→ JPA repositories for database interaction
+
+Database
+→ MySQL (relational model with indexing)
+
+Realtime Layer
+→ WebSocket (STOMP) for broadcasting updates
+
+Key design choices:
+- Separation of concerns via layered architecture
+- Stateless REST APIs
+- Event-driven updates using WebSockets
+
  ## Database Design
 
 Entities:
@@ -29,6 +53,9 @@ Entities:
 - Sprint
 - Comment
 - ActivityLog
+
+  ## Database Schema (ERD)
+ ![Alt Text](C:\Users\hp\OneDrive\Documents\Java Projects\pm-tool) 
 
 ## Local Setup
 
@@ -62,6 +89,7 @@ SPRING_DATASOURCE_PASSWORD=root
 ### Option 3: Access API
 
 Swagger UI: http://localhost:8080/swagger-ui/index.html
+Live Swagger UI: https://pm-tool-49wx.onrender.com/swagger-ui/index.html
 
 ## Seed Data
 
