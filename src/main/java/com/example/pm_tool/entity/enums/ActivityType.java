@@ -1,0 +1,15 @@
+package com.example.pm_tool.entity.enums;
+
+public enum ActivityType {
+    ISSUE_CREATED,
+    ISSUE_UPDATED,
+    ISSUE_TRANSITIONED,
+    ISSUE_MOVED_TO_SPRINT,
+    ISSUE_REMOVED_FROM_SPRINT,
+    COMMENT_ADDED,
+    SPRINT_CREATED,
+    SPRINT_STARTED,
+    SPRINT_COMPLETED,
+    WATCHED,
+    UNWATCHED
+}

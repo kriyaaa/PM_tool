@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: pm-tool-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    autoDeployTrigger: commit
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: DB_HOST
+        fromDatabase:
+          name: pm-tool-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: pm-tool-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: pm-tool-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: pm-tool-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: pm-tool-db
+          property: password
+
+databases:
+  - name: pm-tool-db
+    databaseName: pm_tool
+    user: pm_tool_user
