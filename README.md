@@ -2,19 +2,14 @@
 
 A Jira-like project management backend built with Spring Boot. It supports projects, issues, configurable workflow transitions, sprints, comments, notifications, activity history, issue watchers, search, and WebSocket updates.
 
-## What Is Implemented
+## Key Features
 
-- Projects with seeded workflow columns: `To Do`, `In Progress`, `In Review`, `Done`
-- Workflow transitions with rule enforcement and `422` responses for violations
-- Issues with parent-child links, labels, assignees, reporters, reviewers, watchers, and sprint assignment
-- Sprint CRUD-lite flow: create, list, start, complete, carry-over, velocity calculation
-- Threaded comments with `@email` mention detection
-- Activity feed per project
-- In-app notifications for assignment, comments, mentions, and status changes
-- Search endpoint with text + structured filters
-- Presence tracking and WebSocket broadcasts for project and issue updates
-- Flyway schema migration and demo seed data
-- Docker, Docker Compose, and Render blueprint
+- Issue Management (CRUD)
+- Workflow Engine (Status Transitions)
+- Sprint Management
+- Comments & Activity Logs
+- Search & Filtering
+- Real-time updates (WebSocket)
 
 ## Tech Stack
 
@@ -24,6 +19,16 @@ A Jira-like project management backend built with Spring Boot. It supports proje
 - Flyway
 - MySQL for local development
 - PostgreSQL-ready deployment path for Render
+
+ ## Database Design
+
+Entities:
+- User
+- Project
+- Issue (with hierarchy)
+- Sprint
+- Comment
+- ActivityLog
 
 ## Local Setup
 
@@ -54,6 +59,9 @@ SPRING_DATASOURCE_PASSWORD=root
 ```bash
 ./mvnw spring-boot:run
 ```
+### Option 3: Access API
+
+Swagger UI: http://localhost:8080/swagger-ui/index.html
 
 ## Seed Data
 
@@ -209,35 +217,6 @@ Event types emitted include:
 ```bash
 ./mvnw test
 ```
-
-## Render Deployment
-
-### Option 1: Blueprint deploy
-
-1. Push this repository to GitHub.
-2. In Render, choose `New +` -> `Blueprint`.
-3. Select the repo.
-4. Render will read `render.yaml`, create:
-   - a web service named `pm-tool-api`
-   - a Postgres database named `pm-tool-db`
-5. Deploy.
-
-The startup script builds a JDBC URL from the Render database host, port, database, user, and password env vars.
-
-### Option 2: Manual deploy
-
-1. Create a new PostgreSQL database in Render.
-2. Create a new Web Service from this repo.
-3. Choose Docker runtime.
-4. Set env vars:
-   - `PORT=10000`
-   - `DB_HOST`
-   - `DB_PORT`
-   - `DB_NAME`
-   - `DB_USER`
-   - `DB_PASSWORD`
-5. Set health check path to `/health`.
-6. Deploy.
 
 ## Architecture Notes
 
