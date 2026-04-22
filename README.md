@@ -87,17 +87,22 @@ SPRING_DATASOURCE_PASSWORD=root
 ```bash
 ./mvnw spring-boot:run
 ```
-### Option 3: Access API
+### Option 3: API Documentation
 
-Swagger UI: http://localhost:8080/swagger-ui/index.html
-Live Swagger UI: https://pm-tool-49wx.onrender.com/swagger-ui/index.html
+Local Swagger:
+http://localhost:8080/swagger-ui/index.html
+Live Swagger:
+https://pm-tool-49wx.onrender.com/swagger-ui/index.html
 
 ## Seed Data
 
 The app seeds one demo user and one demo project on startup:
 
-- User: `u1` / `harry@example.com`
-- Project: `p1` / key `PMT`
+| Entity  | Value                                              |
+| ------- | -------------------------------------------------- |
+| User    | u1 / [harry@example.com](mailto:harry@example.com) |
+| Project | p1 / PMT                                           |
+
 
 ## How To Test
 
@@ -261,3 +266,8 @@ Event types emitted include:
 - Custom fields are modeled in the schema and entities, but there is no CRUD API for them yet.
 - Missed-event replay is not fully implemented; current real-time support focuses on live broadcasts and presence snapshots.
 - Search is relational and text-based, not a dedicated search engine.
+
+## Deployment
+- Hosted on Render
+- Uses environment-based configuration
+- PostgreSQL-compatible setup
