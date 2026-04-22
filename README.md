@@ -20,7 +20,7 @@ A Jira-like project management backend built with Spring Boot. It supports proje
 - MySQL for local development
 - PostgreSQL-ready deployment path for Render
 
-  ## System Architecture
+## System Architecture
 
 The system follows a layered architecture:
 
@@ -44,7 +44,7 @@ Key design choices:
 - Stateless REST APIs
 - Event-driven updates using WebSockets
 
- ## Database Design
+## Database Design
 
 Entities:
 - User
@@ -54,8 +54,9 @@ Entities:
 - Comment
 - ActivityLog
 
-  ## Database Schema (ERD)
- ![Alt Text](C:\Users\hp\OneDrive\Documents\Java Projects\pm-tool) 
+## Database Schema (ERD)
+
+![ERD](./docs/pm_tool_erd.png) 
 
 ## Local Setup
 
